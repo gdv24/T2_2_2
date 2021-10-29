@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:border="http://java.sun.com/xml/ns/persistence/orm">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+    <style>
+        table th, table td {padding: 5px;}
+        .row  {
+            font-style: italic;
+        }
+        .even-row {
+            color: black;
+        }
+        .odd-row {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<h1>Cars</h1>
+<table border="1">
+    <tr>
+        <th>No</th>
+        <th>Model</th>
+        <th>Series</th>
+        <th>Color</th>
+    </tr>
+    <tr th:each="car, state : ${messege}"
+        class="row" th:classappend="${state.odd} ? 'odd-row' : 'even-row'">
+        <td th:utext="${state.count}">No</td>
+        <td th:utext="${car.model}">Model</td>
+        <td th:utext="${car.series}">Series</td>
+        <td th:utext="${car.color}">Color</td>
+    </tr>
+</table>
+</body>
+</html>
